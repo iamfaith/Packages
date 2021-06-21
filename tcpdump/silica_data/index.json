@@ -1,0 +1,1 @@
+{"bundle_id": "tcpdump", "name": "tcpdump", "version": "4.9.2-2", "tagline": "dumps and stores network traffic", "homepage": "https://shuga.co/", "developer": {"name": "Faith", "email": ""}, "maintainer": {"name": "Sam Bingner ", "email": ""}, "section": "Networking", "works_min": "9", "works_max": "14.6", "featured": "true", "dependencies": "libpcap, libssl1.0"}

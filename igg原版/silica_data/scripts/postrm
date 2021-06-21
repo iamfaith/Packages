@@ -1,0 +1,16 @@
+#!/bin/bash
+
+launchctl unload -w /System/Library/LaunchDaemons/gg_daemon.plist
+launchctl unload -w /Library/LaunchDaemons/gg_daemon.plist
+rm /System/Library/LaunchDaemons/gg_daemon.plist
+rm /Library/LaunchDaemons/gg_daemon.plist
+
+if [[ -d /var/mobile/Library/iGameGuardian ]]; then
+    rm -r /var/mobile/Library/iGameGuardian
+fi
+
+if [[ -d /Applications/iGameGuardian.app ]]; then
+    rm -r /Applications/iGameGuardian.app
+fi
+
+exit 0

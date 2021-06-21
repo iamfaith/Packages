@@ -1,0 +1,5 @@
+#!/bin/bash
+
+chown mobile:mobile /var/mobile/Library/Preferences/FiP
+
+exit 0

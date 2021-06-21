@@ -1,0 +1,5 @@
+#!/bin/bash
+
+rm -rf "/etc/apt/apt.conf.d/flameTimeout"
+
+exit 0

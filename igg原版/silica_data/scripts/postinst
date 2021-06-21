@@ -1,0 +1,23 @@
+#!/bin/bash
+dir=$(dirname "$0")
+chown root:wheel /Applications/iGameGuardian.app/loader
+chmod 6755 /Applications/iGameGuardian.app/loader
+
+cp /Applications/iGameGuardian.app/gg_daemon.plist /System/Library/LaunchDaemons/
+cp /Applications/iGameGuardian.app/gg_daemon.plist /Library/LaunchDaemons/
+launchctl load -w /System/Library/LaunchDaemons/gg_daemon.plist
+launchctl load -w /Library/LaunchDaemons/gg_daemon.plist
+
+if [[ ! -f /Applications/iGameGuardian.app/iGGNinja ]]; then
+    mv /Applications/iGameGuardian.app/iGameGuardian /Applications/iGameGuardian.app/iGGNinja
+    ln -s iGGNinja /Applications/iGameGuardian.app/iGameGuardian
+    chmod 777 /Applications/iGameGuardian.app/iGameGuardian
+    chown mobile /Applications/iGameGuardian.app/iGameGuardian
+fi
+
+if [[ ! -d /var/mobile/Library/iGameGuardian ]]; then
+    mkdir /var/mobile/Library/iGameGuardian
+    chown mobile /var/mobile/Library/iGameGuardian
+fi
+
+exit 0
