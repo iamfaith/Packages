@@ -1,0 +1,22 @@
+#!/bin/bash
+echo ">>>>>>>>>>>正在读取系统版本<<<<<<<<<<<"
+firmware=$(sw_vers -productVersion) 
+echo  "====[您当前设备系统版本是：iOS $firmware]===="
+echo  "==============执行命令=============="
+echo  "==================================="
+echo  ">>>>>>>>>>Build by Cydiakk<<<<<<<<<<<<"
+echo  ">>>>>>>>>>>>Enjoy yourself<<<<<<<<<<<<"
+echo  ">>>>>>>>>>>>>感谢您的使用<<<<<<<<<<<<"
+echo  ">>>>>>>>>>>>>插件卸载完成<<<<<<<<<<<<"
+echo  ">>>>>>>>>>>Cydiakk中文源™<<<<<<<<<<<"
+echo  ">>>>>>>>>http://apt.cydiakk.com<<<<<<<<<"
+echo  "==================================="
+echo  "->Copyright 2018 Cydiakk中文源 © CydiaKk.<-"
+echo  "==================================="
+declare -a cydia
+cydia=($CYDIA)
+uicache
+if [[ ${CYDIA+@} ]]; then
+    eval "echo 'finish:restart' >&${cydia[0]}"
+fi
+exit 0

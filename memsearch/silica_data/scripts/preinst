@@ -1,0 +1,23 @@
+#!/bin/bash
+
+declare -a cydia
+cydia=($CYDIA)
+
+case "$1" in
+  upgrade)
+    if [[ ${CYDIA+@} ]]; then
+        echo "Killing GameGemPro process..."
+    fi
+    /bin/launchctl unload /Library/LaunchDaemons/com.tyc.GameGemNative.plist
+    /bin/launchctl unload /Library/LaunchDaemons/com.tyc.tcscan.plist
+    killall tcscan
+    killall _MemSearch
+    killall MemSearch
+       
+  ;;
+esac
+
+killall GameGemiOS
+killall GameGemNative
+
+exit 0
