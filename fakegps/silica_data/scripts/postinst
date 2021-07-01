@@ -1,0 +1,47 @@
+#!/bin/bash
+
+declare -a cydia
+cydia=($CYDIA)
+
+
+#chown -R root:wheel /usr/bin/fgpd
+#chmod 6755 /usr/bin/fgpd
+#chown -R root:wheel /Library/LaunchDaemons/cn.tinyapps.fgpd.plist
+#
+#
+#launchctl unload /Library/LaunchDaemons/cn.tinyapps.fgpd.plist
+#launchctl load /Library/LaunchDaemons/cn.tinyapps.fgpd.plist
+
+
+#! iOS 7
+launchctl load -w /System/Library/LaunchDaemons/com.apple.AOSNotification.plist
+
+#! iOS 8/9
+launchctl load -w /Library/LaunchDaemons/com.apple.AOSNotification.plist
+launchctl load -w /Library/LaunchDaemons/com.apple.icloud.findmydeviced.plist
+
+#! iOS 10&11
+launchctl load -w /System/Library/LaunchDaemons/com.apple.icloud.findmydeviced.plist
+launchctl load -w /System/Library/LaunchDaemons/com.apple.icloud.fmflocatord.plist
+
+#! iOS 13
+launchctl load -w /System/Library/LaunchDaemons/com.apple.icloud.fmfd.plist
+launchctl load -w /System/Library/LaunchDaemons/com.apple.icloud.searchpartyd.plist
+
+
+echo "Clean icon cache..."
+su -c /usr/bin/uicache mobile > /dev/null
+su -c /etc/rc.d/substrate > /dev/null
+
+
+if [[ ${CYDIA+@} ]]; then
+flush_springboard
+eval "echo 'finish:reload' >&${cydia[0]}"
+else
+echo "Installed. Please respring your device MANUALLY."
+fi
+
+exit 0
+
+
+

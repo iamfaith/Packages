@@ -1,0 +1,23 @@
+#!/bin/bash
+
+declare -a cydia
+cydia=($CYDIA)
+
+#! iOS 7
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.AOSNotification.plist
+
+#! iOS 8/9
+launchctl unload -w /Library/LaunchDaemons/com.apple.AOSNotification.plist
+launchctl unload -w /Library/LaunchDaemons/com.apple.icloud.findmydeviced.plist
+
+#! iOS 10
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.icloud.findmydeviced.plist
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.icloud.fmflocatord.plist
+
+#! iOS 13
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.icloud.fmfd.plist
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.icloud.searchpartyd.plist
+
+
+
+exit 0
