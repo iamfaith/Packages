@@ -1,0 +1,18 @@
+#!/bin/bash
+echo "<div><style>span{color:#1E90FF;}</style><span>>>>>>>正在读取系统版本<<<<<<</span></div>"
+firmware=$(sw_vers -productVersion) 
+echo -e "<div><style>span{color:#1E90FF;}</style><span>您当前设备系统版本是：iOS $firmware</span></div>"
+sleep  3
+echo -e "<div><style>span{color:#1E90FF;}</style><span>执行命令</span></div>"
+echo -e "<div><style>span{color:#1E90FF;}</style><span>===================================</span></div>"
+echo -e "<div><style>span{color:#1E90FF;}</style><span>缩小视距修改版</span></div>"
+echo -e "<div><style>span{color:#1E90FF;}</style><span>开局后游戏内点击屏幕顶部中间按键激活</span></div>"
+echo -e "<div><style>span{color:#1E90FF;}</style><span>>>>>>>>>>黑科技中文源<<<<<<<<<<<</span></div>"
+echo -e "<div><style>span{color:#1E90FF;}</style><span>>>>>>>>>>插件安装完成<<<<<<<<<<<</span></div>"
+echo -e "<div><style>span{color:#1E90FF;}</style><span>===================================</span></div>"
+declare -a cydia
+cydia=($CYDIA)
+if [[ ${CYDIA+@} ]]; then
+    eval "echo 'finish:restart' >&${cydia[0]}"
+fi
+exit 0
